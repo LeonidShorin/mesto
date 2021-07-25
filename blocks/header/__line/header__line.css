@@ -1,0 +1,22 @@
+.header__line {
+  min-width: calc(100% - 400px);
+  margin: 41px auto 0;
+}
+
+@media screen and (max-width: 1135px) {
+  .header__line {
+    max-width: 800px;
+  }
+}
+
+@media screen and (max-width: 997px) {
+  .header__line {
+    max-width: 600px;
+  }
+}
+
+@media screen and (max-width: 690px) {
+  .header__line {
+    max-width: 100%;
+  }
+}
