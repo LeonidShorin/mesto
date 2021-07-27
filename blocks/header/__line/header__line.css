@@ -1,5 +1,7 @@
 .header__line {
-  min-width: calc(100% - 400px);
+  background: url(../../../images/Line.png);
+  min-height: 1px;
+  min-width: 100%;
   margin: 41px auto 0;
 }
 
