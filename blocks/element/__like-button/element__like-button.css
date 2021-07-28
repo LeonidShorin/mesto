@@ -9,5 +9,5 @@
 }
 
 .element__like-button:hover{
-  background: url(../../../images/LikeButton_active.svg) no-repeat;
+  opacity: .5;
 }

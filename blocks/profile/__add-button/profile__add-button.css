@@ -5,6 +5,7 @@
   margin: 35px 0 35px 244px;
   transition: .4s;
   cursor: pointer;
+  border: none;
 }
 
 .profile__add-button:hover {

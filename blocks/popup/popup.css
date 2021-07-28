@@ -1,99 +1,14 @@
 .popup {
   display: none;
   position: fixed;
-  padding-top: 198px;
-  padding-left: 238px;
-  left: 187px;
-  top: 33px;
   justify-content: center;
   align-items: center;
   background: rgba(0, 0, 0, .5);
-  min-width: 100vw;
-  min-height: 100vh;
+  min-width: 100%;
+  min-height: 100%;
+  left: 1px;
 }
 
-@media screen and (min-width: 1770px) {
-  .popup {
-    padding-left: 1000px;
-    left: 380px;
-  }
-}
-
-@media screen and (min-width: 1679px) {
-  .popup {
-    padding-left: 410px;
-  }
-}
-
-@media screen and (min-width: 1600px) {
-  .popup {
-    padding-left: 390px;
-  }
-}
-
-@media screen and (min-width: 1538px) {
-  .popup {
-    padding-left: 350px;
-  }
-}
-
-@media screen and (max-width: 1135px) {
-  .popup {
-    left: 110px;
-  }
-}
-
-@media screen and (max-width: 892px) {
-  .popup {
-    left: 60px;
-  }
-}
-
-@media screen and (max-width: 777px) {
-  .popup {
-    left: 5px;
-  }
-}
-
-@media screen and (max-width: 690px) {
-  .popup {
-    left: -40px;
-    top: -70px;
-  }
-}
-
-@media screen and (max-width: 610px) {
-  .popup {
-    left: -80px;
-  }
-}
-
-@media screen and (max-width: 525px) {
-  .popup {
-    left: -125px;
-  }
-}
-
-@media screen and (max-width: 450px) {
-  .popup {
-    left: -165px;
-  }
-}
-
-@media screen and (max-width: 400px) {
-  .popup {
-    left: -190px;
-  }
-}
-
-@media screen and (max-width: 370px) {
-  .popup {
-    left: -200px;
-  }
-}
-
-@media screen and (max-width: 340px) {
-  .popup {
-    left: -220px;
-  }
+@media screen and (min-width: 1285px) {
+  
 }
