@@ -24,9 +24,6 @@ const imagePopupImgCaption = imagePopup.querySelector('.popup__image-caption');
 // Template-элемент карточки
 const cardElementTemplate = document.querySelector('#element__template').content;
 
-// Новая карточка
-let newCard;
-
 const initialCards = [
   {
     name: 'Архыз',
@@ -114,6 +111,9 @@ function createCard (cardName, cardLink) {
 
   return card;
 }
+
+// Новая карточка (переменная для создаваемых карточек)
+let newCard;
 
 // карточка на страницу
 function addCard (newCard) {
