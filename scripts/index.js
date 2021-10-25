@@ -1,6 +1,4 @@
-"use strict"
 // Переменные
-//const popup = document.querySelector('.popup');
 const profilePopup = document.querySelector('.popup_type_profile');
 const popupForm = document.querySelector('.popup__form_profile');
 const nameInput = document.querySelector('.popup__input_type_name');
@@ -54,11 +52,23 @@ const initialCards = [
 // функция открытия поп-апа
 function openPopup(anyPopup) {
   anyPopup.classList.add('popup_show');
+  window.addEventListener('keydown', keyEscHandler);
+  anyPopup.addEventListener('click', mouseOverlayHandler);
+  enableValidation({
+    formSelector: '.popup__form',
+    inputSelector: '.popup__input',
+    submitButtonSelector: '.popup__save-button',
+    inactiveButtonClass: 'popup__save-button_disabled',
+    inputErrorClass: 'popup__input_invalid',
+    errorClass: 'popup__input-error_active'
+  });
 }
 
 // функция закрытия поп-апа
 function closePopup(anyPopup) {
   anyPopup.classList.remove('popup_show');
+  window.removeEventListener('keydown', keyEscHandler);
+  anyPopup.removeEventListener('click', mouseOverlayHandler);
 }
 
 // профиль
@@ -140,6 +150,22 @@ function formSubmitAddCardHandler (event) {
   cardLinkInput.value = '';
 
   closePopup(cardPopup);
+}
+
+// функция закрытия поп-апа клавишей Esc
+function keyEscHandler(evt) {
+  if (evt.key === 'Escape') {
+    const currentPopup = document.querySelector('.popup_show');
+    closePopup(currentPopup);
+  }
+}
+
+// функция закрытия поп-апа кликом на оверлей
+function mouseOverlayHandler(evt) {
+  if (evt.target.classList.contains('popup')) {
+    const popup = evt.target.closest('.popup');
+    closePopup(popup);
+  }
 }
 
 // слушатели событий
