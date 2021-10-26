@@ -40,7 +40,7 @@
       <form name="popup-form-profile" action="post" class="popup__form popup__form_profile" novalidate>
         <input placeholder="Имя" name="name" type="text" class="popup__input popup__input_type_name" id="name-input" minlength="2" maxlength="40" required>
         <span class="popup__input-error name-input-error"></span>
-        <input placeholder="Профессиональная деятельность" name="job" type="text" class="popup__input popup__input_type_job" id="description-input" required>
+        <input placeholder="О себе" name="job" type="text" class="popup__input popup__input_type_job" id="description-input" minlength="2" maxlength="200" required>
         <span class="popup__input-error description-input-error"></span>
         <button type="submit" class="popup__save-button">Сохранить</button>
       </form>

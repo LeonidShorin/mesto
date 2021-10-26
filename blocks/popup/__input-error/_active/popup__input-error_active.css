@@ -1,8 +1,6 @@
 .popup__input-error_active {
   display: block;
   max-width: 358px;
-  min-height: 16px;
-  margin: 5px auto 13px;
   font-family: inherit;
   font-size: 12px;
   font-weight: 400;
