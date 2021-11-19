@@ -60,17 +60,17 @@ const validObj = {
 };
 
 // валидатор попап профиль
-const editProfileValidator = new FormValidator (validObj, popupForm);
-editProfileValidator.enableValidation();
+const ProfileValidator = new FormValidator (validObj, popupForm);
+ProfileValidator.enableValidation();
 
 
 // попап профиль с чек валид
 function editProfile() {
-  editProfileValidator.clearValidation();
+  ProfileValidator.clearValidation();
   nameInput.value = profileName.textContent;
   jobInput.value = profileDescription.textContent;
   openPopup(profilePopup);
-  editProfileValidator.toggleButtonState();
+  ProfileValidator.toggleButtonState();
 }
 
 function formSubmitHandler (evt) {
@@ -81,14 +81,14 @@ function formSubmitHandler (evt) {
 }
 
 // валидатор попап карточка
-const formAddCardValidator = new FormValidator (validObj, cardForm);
-formAddCardValidator.enableValidation();
+const CardValidator = new FormValidator (validObj, cardForm);
+CardValidator.enableValidation();
 
 // попап карточка с чек валид
 function renderCardPopup() {
-  formAddCardValidator.clearValidation();
+  CardValidator.clearValidation();
   openPopup(cardPopup);
-  formAddCardValidator.toggleButtonState();
+  CardValidator.toggleButtonState();
 }
 
 function addCardHandler(evt) {
