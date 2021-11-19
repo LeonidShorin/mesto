@@ -1,9 +1,7 @@
 // Импорт
 import {Card} from './card.js';
 import {FormValidator} from './validate.js';
-
 import {closePopup, openPopup, imagePopup, imagePopupCloseButton} from './utils.js';
-
 
 // Переменные
 const profilePopup = document.querySelector('.popup_type_profile');
@@ -52,7 +50,7 @@ const initialCards = [
   }
 ];
 
-// классы валидации
+// классы валид
 const validObj = {
   inputSelector: '.popup__input',
   submitButtonSelector: '.popup__save-button',
@@ -61,21 +59,17 @@ const validObj = {
   errorSelector: '.popup__input-error'
 };
 
-// валидатор профиль
+// валидатор попап профиль
 const editProfileValidator = new FormValidator (validObj, popupForm);
 editProfileValidator.enableValidation();
 
 
-// профиль с чек валид
+// попап профиль с чек валид
 function editProfile() {
   editProfileValidator.clearValidation();
-  
-  
   nameInput.value = profileName.textContent;
   jobInput.value = profileDescription.textContent;
-
   openPopup(profilePopup);
-
   editProfileValidator.toggleButtonState();
 }
 
@@ -86,28 +80,26 @@ function formSubmitHandler (evt) {
   closePopup(profilePopup);
 }
 
-// валидатор карточка
+// валидатор попап карточка
 const formAddCardValidator = new FormValidator (validObj, cardForm);
 formAddCardValidator.enableValidation();
 
-// откр попап доб карт
+// попап карточка с чек валид
 function renderCardPopup() {
   formAddCardValidator.clearValidation();
-
   openPopup(cardPopup);
-
   formAddCardValidator.toggleButtonState();
 }
 
-function uploadCardHandler(evt) {
-  evt.preventDefault;
+function addCardHandler(evt) {
+  evt.preventDefault();
   const card = new Card(cardNameInput.value, cardLinkInput.value, cardElementTemplate).renderCard();
   cardsContainer.prepend(card);
   cardForm.reset();
   closePopup(cardPopup);
 }
 
-// загр карточки на страницу
+// массив карточек на страницу
 function uploadCards(array) {
   array.forEach((item) => {
     const card = new Card(item.name, item.link, cardElementTemplate).renderCard();
@@ -117,12 +109,11 @@ function uploadCards(array) {
 
 uploadCards(initialCards);
 
-
 // слушатели событий
 editButton.addEventListener('click', editProfile);
 popupCloseButton.addEventListener('click', () => closePopup(profilePopup));
 popupForm.addEventListener('submit', formSubmitHandler);
 newPlaceButton.addEventListener('click', renderCardPopup);
 cardPopupCloseButton.addEventListener('click', () => closePopup(cardPopup));
-cardForm.addEventListener('submit', uploadCardHandler);
+cardForm.addEventListener('submit', addCardHandler);
 imagePopupCloseButton.addEventListener('click', () => closePopup(imagePopup));
