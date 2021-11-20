@@ -92,6 +92,7 @@ function renderCardPopup() {
   cardValidator.toggleButtonState();
 }
 
+// отдельная функция возврат новой карточки
 function createCard(title, link) {
   const card = new Card(title, link, cardElementTemplate);
   const result = card.renderCard();
