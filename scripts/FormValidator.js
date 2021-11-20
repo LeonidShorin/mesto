@@ -58,7 +58,7 @@ export class FormValidator {
     this._inputList.forEach((inputElement) => {
       inputElement.addEventListener('input', () => {
         this._checkInputValidity(inputElement);
-        this.toggleButtonState(this._inputList, this._submitButton);
+        this.toggleButtonState();
       });
     });
   };
@@ -70,7 +70,7 @@ export class FormValidator {
   clearValidation() {
     this._inputList.forEach((inputElement) => {
       inputElement.value = '';
-      inputElement.classList.remove('popup__input_invalid');
+      inputElement.classList.remove(this._inputErrorClass);
       inputElement.nextElementSibling.textContent = '';
     });
   }

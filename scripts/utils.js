@@ -28,7 +28,6 @@ export function keyEscHandler(evt) {
 // функция закрытия поп-апа кликом на оверлей
 export function mouseOverlayHandler(evt) {
   if (evt.target.classList.contains('popup')) {
-    const popup = evt.target.closest('.popup');
-    closePopup(popup);
+    closePopup(evt.target);
   }
 }

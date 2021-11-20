@@ -1,6 +1,6 @@
 // Импорт
-import {Card} from './card.js';
-import {FormValidator} from './validate.js';
+import {Card} from './Card.js';
+import {FormValidator} from './FormValidator.js';
 import {closePopup, openPopup, imagePopup, imagePopupCloseButton} from './utils.js';
 
 // Переменные
@@ -54,26 +54,27 @@ const initialCards = [
 const validObj = {
   inputSelector: '.popup__input',
   submitButtonSelector: '.popup__save-button',
+  inactiveButtonClass: 'popup__save-button_disabled',
   inputErrorClass: 'popup__input_invalid',
   errorClass: 'popup__input-error_active',
   errorSelector: '.popup__input-error'
 };
 
 // валидатор попап профиль
-const ProfileValidator = new FormValidator (validObj, popupForm);
-ProfileValidator.enableValidation();
+const profileValidator = new FormValidator (validObj, popupForm);
+profileValidator.enableValidation();
 
 
 // попап профиль с чек валид
 function editProfile() {
-  ProfileValidator.clearValidation();
+  profileValidator.clearValidation();
   nameInput.value = profileName.textContent;
   jobInput.value = profileDescription.textContent;
   openPopup(profilePopup);
-  ProfileValidator.toggleButtonState();
+  profileValidator.toggleButtonState();
 }
 
-function formSubmitHandler (evt) {
+function editProfileHandler (evt) {
   evt.preventDefault();
   profileName.textContent = nameInput.value;
   profileDescription.textContent = jobInput.value;
@@ -81,20 +82,25 @@ function formSubmitHandler (evt) {
 }
 
 // валидатор попап карточка
-const CardValidator = new FormValidator (validObj, cardForm);
-CardValidator.enableValidation();
+const cardValidator = new FormValidator (validObj, cardForm);
+cardValidator.enableValidation();
 
 // попап карточка с чек валид
 function renderCardPopup() {
-  CardValidator.clearValidation();
+  cardValidator.clearValidation();
   openPopup(cardPopup);
-  CardValidator.toggleButtonState();
+  cardValidator.toggleButtonState();
+}
+
+function createCard(title, link) {
+  const card = new Card(title, link, cardElementTemplate);
+  const result = card.renderCard();
+  return result;
 }
 
 function addCardHandler(evt) {
   evt.preventDefault();
-  const card = new Card(cardNameInput.value, cardLinkInput.value, cardElementTemplate).renderCard();
-  cardsContainer.prepend(card);
+  cardsContainer.prepend(createCard(cardNameInput.value, cardLinkInput.value));
   cardForm.reset();
   closePopup(cardPopup);
 }
@@ -102,8 +108,7 @@ function addCardHandler(evt) {
 // массив карточек на страницу
 function uploadCards(array) {
   array.forEach((item) => {
-    const card = new Card(item.name, item.link, cardElementTemplate).renderCard();
-    cardsContainer.prepend(card);
+    cardsContainer.prepend(createCard(item.name, item.link));
   });
 }
 
@@ -112,7 +117,7 @@ uploadCards(initialCards);
 // слушатели событий
 editButton.addEventListener('click', editProfile);
 popupCloseButton.addEventListener('click', () => closePopup(profilePopup));
-popupForm.addEventListener('submit', formSubmitHandler);
+popupForm.addEventListener('submit', editProfileHandler);
 newPlaceButton.addEventListener('click', renderCardPopup);
 cardPopupCloseButton.addEventListener('click', () => closePopup(cardPopup));
 cardForm.addEventListener('submit', addCardHandler);
