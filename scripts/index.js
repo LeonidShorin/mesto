@@ -1,5 +1,5 @@
 // Импорт
-import {Card} from './card.js';
+import {Card} from './Card.js';
 import {FormValidator} from './FormValidator.js'
 import {closePopup, openPopup, imagePopup, imagePopupCloseButton} from './utils.js';
 

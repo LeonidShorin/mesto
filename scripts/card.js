@@ -1,3 +1,4 @@
+// Card
 import {openPopup, imagePopup, imagePopupImg, imagePopupImgCaption} from './utils.js';
 
 export class Card {
