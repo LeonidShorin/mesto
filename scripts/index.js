@@ -1,6 +1,6 @@
 // Импорт
 import {Card} from './Card.js';
-import {FormValidator} from './FormValidator.js';
+import {FormValidator} from './FormValidator.js'
 import {closePopup, openPopup, imagePopup, imagePopupCloseButton} from './utils.js';
 
 // Переменные
