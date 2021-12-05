@@ -1,0 +1,38 @@
+{
+  "name": "mesto",
+  "version": "0.0.7",
+  "description": "Github pages: https://leonidshorin.github.io/mesto/\r ------\r Страница, созданная с целью обучения вёрстке html, применению стилей css, адаптации сайта под различные разрешения устройств, базовых концепций JavaScript, интерфейса DOM, создания форм. Текст страницы посвящён теме природных памятников России.\r ------\r В данной проектной работе применяется методология и файловая структура БЭМ, технология flex, псевдоклассы css, медиазапросы, JavaScript.\r Планы по доработке:\r 1. Добавить поведение кнопке 'Like'.\r 2. Добавить плавности всплывающей форме.\r 3. Исправить допущенные ошибки по результатам код-ревью.",
+  "main": "index.js",
+  "scripts": {
+    "build": "rimraf dist && webpack",
+    "dev": "webpack serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeonidShorin/mesto.git"
+  },
+  "author": "Leonid Shorin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LeonidShorin/mesto/issues"
+  },
+  "homepage": "https://github.com/LeonidShorin/mesto#readme",
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "autoprefixer": "^10.4.0",
+    "babel-loader": "^8.2.3",
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.5.1",
+    "cssnano": "^5.0.12",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.4.5",
+    "postcss-loader": "^6.2.1",
+    "webpack": "^5.64.4",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.6.0"
+  },
+  "dependencies": {
+    "core-js": "^3.19.2"
+  }
+}
