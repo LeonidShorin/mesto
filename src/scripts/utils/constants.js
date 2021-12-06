@@ -21,12 +21,12 @@ export const cardsContainer = '.elements';
 export const cardElementTemplate = '#element__template';
 
 // загружаем картинки
-import arkhyzImage from '../images/arkhyz.jpg';
-import chelyabinskImage from '../images/chelyabinsk-oblast.jpg';
-import IvanovoImage from '../images/ivanovo.jpg';
-import kamchatkaImage from '../images/kamchatka.jpg';
-import HolmogorskyImage from '../images/kholmogorsky-rayon.jpg';
-import baikalImage from '../images/baikal.jpg';
+import arkhyzImage from '../../images/arkhyz.jpg';
+import chelyabinskImage from '../../images/chelyabinsk-oblast.jpg';
+import IvanovoImage from '../../images/ivanovo.jpg';
+import kamchatkaImage from '../../images/kamchatka.jpg';
+import HolmogorskyImage from '../../images/kholmogorsky-rayon.jpg';
+import baikalImage from '../../images/baikal.jpg';
 
 export const initialCards = [
   {

@@ -1,10 +1,10 @@
 // Импорт
-import Card from '../scripts/Card.js';
-import FormValidator from '../scripts/FormValidator.js'
-import Section from '../scripts/Section.js';
-import PopupWithForm from '../scripts/PopupWithForm.js';
-import PopupWithImage from '../scripts/PopupWithImage.js';
-import UserInfo from '../scripts/UserInfo.js';
+import Card from '../scripts/components/Card.js';
+import FormValidator from '../scripts/components/FormValidator.js'
+import Section from '../scripts/components/Section.js';
+import PopupWithForm from '../scripts/components/PopupWithForm.js';
+import PopupWithImage from '../scripts/components/PopupWithImage.js';
+import UserInfo from '../scripts/components/UserInfo.js';
 import {
   profilePopup,
   profileForm,
@@ -21,8 +21,18 @@ import {
   initialCards,
   imagePopup,
   validObj
-} from '../scripts/constants.js';
+} from '../scripts/utils/constants.js';
 import './index.css';
+
+/** Валидация **/
+
+// FormValidator для редактирования профиля
+const profileValidator = new FormValidator(validObj, profileForm);
+profileValidator.enableValidation();
+
+// FormValidator для добавления карточки
+const cardValidator = new FormValidator(validObj, cardForm);
+cardValidator.enableValidation();
 
 /** Экземпляры классов **/
 
@@ -66,16 +76,6 @@ const addCard = new PopupWithForm({
   }
 });
 addCard.setEventListeners();
-
-/** Валидация **/
-
-// FormValidator для редактирования профиля
-const profileValidator = new FormValidator(validObj, profileForm);
-profileValidator.enableValidation();
-
-// FormValidator для добавления карточки
-const cardValidator = new FormValidator(validObj, cardForm);
-cardValidator.enableValidation();
 
 /** Слушатели **/
 
