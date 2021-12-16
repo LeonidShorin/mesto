@@ -26,10 +26,14 @@
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./src/blocks/profile/profile.css ***!
   \********************************************************************************************************************************************************/
 .profile{display:flex;flex-direction:row;margin:36px auto 0;max-width:calc(100% - 400px)}@media screen and (max-width:1135px){.profile{align-items:center;flex-direction:column}}@media screen and (max-width:690px){.profile{margin:42px auto 0;max-width:calc(100% - 38px)}}
+/*!*************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./src/blocks/profile/__avatar-block/profile__avatar-block.css ***!
+  \*************************************************************************************************************************************************************************************/
+.profile__avatar-block{border-radius:55%;display:block;max-height:120px;min-width:120px;overflow:hidden;position:relative}.profile__avatar-block:before{background-color:#000;background-image:url(a086f758840ae814ecde.svg);background-position:50%;background-repeat:no-repeat;background-size:26px 26px;content:"";display:block;height:100%;left:0;opacity:0;position:absolute;top:0;transition:opacity .2s linear;width:100%}.profile__avatar-block:hover:before{cursor:pointer;opacity:.8}
 /*!*************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./src/blocks/profile/__avatar/profile__avatar.css ***!
   \*************************************************************************************************************************************************************************/
-.profile__avatar{border-radius:57px;max-height:120px;max-width:120px}
+.profile__avatar{height:120px;margin:0;-o-object-fit:cover;object-fit:cover;width:120px}
 /*!*********************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./src/blocks/profile/__info/profile__info.css ***!
   \*********************************************************************************************************************************************************************/
@@ -49,7 +53,7 @@
 /*!*********************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./src/blocks/profile/__add-button/profile__add-button.css ***!
   \*********************************************************************************************************************************************************************************/
-.profile__add-button{background:url(6f41966c71dd7895857f.svg) no-repeat;border:none;cursor:pointer;margin:35px 0 35px 244px;max-height:50px;min-width:150px;transition:.4s}.profile__add-button:hover{opacity:.5}@media screen and (max-width:1135px){.profile__add-button{background:url(6f86ece55e54220c5485.svg) no-repeat;margin:36px 19px 0;min-height:50px;min-width:282px;-o-object-fit:cover;object-fit:cover}}
+.profile__add-button{background:url(6f41966c71dd7895857f.svg) no-repeat;border:none;cursor:pointer;margin:35px 0 35px 244px;min-height:50px;min-width:150px;transition:.4s}.profile__add-button:hover{opacity:.5}@media screen and (max-width:1135px){.profile__add-button{background:url(6f86ece55e54220c5485.svg) no-repeat;margin:36px 19px 0;min-height:50px;min-width:282px;-o-object-fit:cover;object-fit:cover}}
 /*!**********************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./src/blocks/elements/elements.css ***!
   \**********************************************************************************************************************************************************/
@@ -70,10 +74,14 @@
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./src/blocks/element/__title/element__title.css ***!
   \***********************************************************************************************************************************************************************/
 .element__title{font-size:24px;font-style:normal;font-weight:900;line-height:29px;margin:25px 0 31px 21px;min-width:224px}.element__title:last-of-type{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+/*!*********************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./src/blocks/element/__like-block/element__like-block.css ***!
+  \*********************************************************************************************************************************************************************************/
+.element__like-block{align-items:center;display:flex;flex-direction:column}
 /*!***********************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./src/blocks/element/__like-button/element__like-button.css ***!
   \***********************************************************************************************************************************************************************************/
-.element__like-button{background:url(87ed371465c7a6a1cd01.svg) no-repeat;border:0;cursor:pointer;height:19px;margin-top:30px;padding-right:30px;width:22px}.element__like-button:hover{opacity:.5}.element__like-button_active{background-image:url(fe17a515669479b1e649.svg)}
+.element__like-button{background:url(87ed371465c7a6a1cd01.svg) no-repeat;border:0;cursor:pointer;height:19px;margin-top:30px;padding-right:30px;width:22px}.element__like-button:hover{opacity:.5}
 /*!**************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./src/blocks/element/__like-button/_active/element__like-button_active.css ***!
   \**************************************************************************************************************************************************************************************************/
@@ -82,6 +90,10 @@
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./src/blocks/element/__delete-button/element__delete-button.css ***!
   \***************************************************************************************************************************************************************************************/
 .element__delete-button{background-color:transparent;background-image:url(cbc09a894bdd4c956365.svg);background-position:50%;background-repeat:no-repeat;background-size:100%;border:0;box-shadow:none;cursor:pointer;height:19px;margin:0;outline:none;padding:0;position:absolute;right:15px;top:18px;transition:.4s;width:18px}.element__delete-button:hover{opacity:.6}
+/*!**************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./src/blocks/element/__delete-button/_hide/element__delete-button_hide.css ***!
+  \**************************************************************************************************************************************************************************************************/
+.element__delete-button_hide{display:none;opacity:0;pointer-events:none}
 /*!******************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./src/blocks/footer/footer.css ***!
   \******************************************************************************************************************************************************/
