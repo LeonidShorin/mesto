@@ -4,11 +4,11 @@ export default class Api {
     this._headers = headers;
   }
 
-  _parseResponse(res) {
+  _parseResponse(res, errorText) {
     if (res.ok) {
       return res.json();
     }
-    return Promise.reject(new Error(`Произошла ошибка со статус-кодом ${res.status}`));
+    return Promise.reject(`${errorText}. Статус ошибки:${res.status}`);
   }
 
   getUserInfo() {
@@ -16,8 +16,8 @@ export default class Api {
       method: 'GET',
       headers: this._headers,
     })
-    .then(res => this._parseResponse(res))
-    .catch(err => Promise.reject(err));
+    .then(res => {return this._parseResponse(res, 'Не удалось загрузить данные пользователя');
+    });
   }
 
   getInitialCards() {
@@ -25,8 +25,8 @@ export default class Api {
       method: 'GET',
       headers: this._headers,
     })
-    .then(res => this._parseResponse(res))
-    .catch(err => Promise.reject(err));
+    .then(res => {return this._parseResponse(res, 'Не удалось загрузить карточки');
+    });
   }
 
   editProfile({name, description}) {
@@ -38,8 +38,8 @@ export default class Api {
         about: description
       })
     })
-    .then(res => this._parseResponse(res))
-    .catch(err => Promise.reject(err));
+    .then(res => {return this._parseResponse(res, 'Не удалось загрузить данные профиля');
+    });
   }
 
   updateAvatar(link) {
@@ -50,8 +50,8 @@ export default class Api {
         avatar: link
       })
     })
-    .then(res => this._parseResponse(res))
-    .catch(err => Promise.reject(err));
+    .then(res => {return this._parseResponse(res, 'Не удалось загрузить аватар');
+    });
   }
 
   addCard({name, link}) {
@@ -63,8 +63,8 @@ export default class Api {
         link: link
       })
     })
-    .then(res => this._parseResponse(res))
-    .catch(err => Promise.reject(err));
+    .then(res => {return this._parseResponse(res, 'Не удалось добавить карточку');
+    });
   }
 
   deleteCard(cardId) {
@@ -72,8 +72,8 @@ export default class Api {
       method: 'DELETE',
       headers: this._headers,
     })
-    .then(res => this._parseResponse(res))
-    .catch(err => Promise.reject(err));
+    .then(res => {return this._parseResponse(res, 'Не удалось удалить карточку');
+    });
   }
 
   addLike(cardId) {
@@ -81,8 +81,8 @@ export default class Api {
       method: 'PUT',
       headers: this._headers,
     })
-    .then(res => this._parseResponse(res))
-    .catch(err => Promise.reject(err));
+    .then(res => {return this._parseResponse(res, 'Не удалось поставить like');
+    });
   }
 
   removeLike(cardId) {
@@ -90,7 +90,7 @@ export default class Api {
       method: 'DELETE',
       headers: this._headers,
     })
-    .then(res => this._parseResponse(res))
-    .catch(err => Promise.reject(err));
+    .then(res => {return this._parseResponse(res, 'Не удалось убрать лайк');
+    });
   }
 }

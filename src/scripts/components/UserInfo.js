@@ -13,9 +13,21 @@ export default class UserInfo {
   }
 
   setUserInfo(userData) {
+    if (userData.name) {
+      console.log('Аргумент Userdata.name передан');
+    }
     this._userName.textContent = userData.name;
+    if (userData.about) {
+      console.log('Аргумент Userdata.about передан');
+    }
     this._userDescription.textContent = userData.about;
+    if (userData._id) {
+      console.log('Аргумент Userdata._id передан');
+    }
     this._id = userData._id;
+    if (userData.avatar) {
+      console.log('Аргумент Userdata.avatar передан');
+    }
     this._userAvatar.src = userData.avatar;
   }
 

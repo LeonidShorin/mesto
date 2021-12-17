@@ -42,18 +42,18 @@ const api = new Api ({
 const userInfo = new UserInfo(profileName, profileDescription, avatarPictureSelector);
 
 // экземпляр PopupWithForm для профиля
-const redactProfile = new PopupWithForm({
+const popupEditProfile = new PopupWithForm({
   popupSelector: profilePopup, handleFormSubmit: (formData) => {
     api.editProfile(formData)
     .then((res) => {
       userInfo.setUserInfo(res);
-      redactProfile.close();
+      popupEditProfile.close();
     })
     .catch(err => {
       alert(err);
     })
     .finally(() => {
-      redactProfile.renderLoading(false);
+      popupEditProfile.renderLoading(false);
     });  
   }
 });
@@ -62,32 +62,32 @@ const redactProfile = new PopupWithForm({
 const imgPopup = new PopupWithImage(imagePopup);
 
 // экземпляр поп-апа подтверждение
-const confirmDelPopup = new PopupWithConfirmation(confirmationPopup, (cardId) => {
+const popupConfirmCardDeletion = new PopupWithConfirmation(confirmationPopup, (cardId) => {
   api.deleteCard(cardId)
   .then(() => {
-    document.getElementById(cardId).remove();
-    confirmDelPopup.close();
+    Card.removeCardInDelPopup(cardId);
+    popupConfirmCardDeletion.close();
   })
   .catch(err => {
     alert(err);
   })
   .finally(() => {
-    confirmDelPopup.renderLoading(false);
+    popupConfirmCardDeletion.renderLoading(false);
   });
 });
 
-const updateAvatarPopup = new PopupWithForm ({
+const popupUpdateAvatar = new PopupWithForm ({
   popupSelector: avatarPopup, handleFormSubmit: (formData) => {
     api.updateAvatar(formData.link)
     .then((res) => {
       userInfo.setUserInfo(res);
-      updateAvatarPopup.close();
+      popupUpdateAvatar.close();
     })
     .catch(err=>{
       alert(err);
     })
     .finally(()=>{
-      updateAvatarPopup.renderLoading(false);
+      popupUpdateAvatar.renderLoading(false);
     });
   }
 });
@@ -104,7 +104,7 @@ const createNewCard = (item) => {
     () => {
       imgPopup.open(item);
     }, () => {
-      confirmDelPopup.open(item._id);
+      popupConfirmCardDeletion.open(item._id);
     }, (liked) => {
       if (liked) {
         api.addLike(item._id)
@@ -135,35 +135,38 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
     userInfo.setUserInfo(userData);
 
   // экземпляр класса Section
-  const cardList = new Section(cardsData, (data) => {
-    cardList.addItem(createNewCard(data));
+  const cardList = new Section(
+    cardsData.reverse(), (data) => {
+    cardList.addItem(createNewCard(data)); //cardList.addItem(createNewCard(data));
   }, cardsContainer);
   cardList.renderItems();
+  
+  
 
 // экземпляр PopupWithForm для добавления карточек
-const addNewCard = new PopupWithForm({
-  popupSelector: cardPopup, handleFormSubmit: (formData) => {
-    api.addCard(formData)
-    .then(res => {
-      const card = createNewCard(res);
-      cardList.addItem(card);
-      addNewCard.close();
-    })
-    .catch(err => {
-      alert(err);
-    })
-    .finally(() => {
-      addNewCard.renderLoading(false);
-    });
-  },
-});
+  const popupAddCard = new PopupWithForm({
+    popupSelector: cardPopup, handleFormSubmit: (formData) => {
+      api.addCard(formData)
+      .then(res => {
+        const card = createNewCard(res);
+        cardList.addItem(card);
+        popupAddCard.close();
+      })
+      .catch(err => {
+        alert(err);
+      })
+      .finally(() => {
+        popupAddCard.renderLoading(false);
+      });
+    },
+  });
 
   // слушатели поп-апов
-  redactProfile.setEventListeners();
+  popupEditProfile.setEventListeners();
   imgPopup.setEventListeners();
-  addNewCard.setEventListeners();
-  updateAvatarPopup.setEventListeners();
-  confirmDelPopup.setEventListeners();
+  popupAddCard.setEventListeners();
+  popupUpdateAvatar.setEventListeners();
+  popupConfirmCardDeletion.setEventListeners();
 
   /** Валидация **/
 
@@ -184,18 +187,18 @@ const addNewCard = new PopupWithForm({
     nameInput.value = defaultUserInfo.name;
     jobInput.value = defaultUserInfo.about;
     validators['popup-form-profile'].clearValidation();
-    redactProfile.open();
+    popupEditProfile.open();
   });
 
   updateAvatarButton.addEventListener('click', () => {
     validators['popup-form-avatar'].clearValidation();
-    updateAvatarPopup.open();
+    popupUpdateAvatar.open();
   });
 
   // слушатель добавления карточек
   newPlaceButton.addEventListener('click', () => {
     validators['popup-form-card'].clearValidation();
-    addNewCard.open();
+    popupAddCard.open();
   });
 })
 .catch(err => {

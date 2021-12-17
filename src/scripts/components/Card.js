@@ -73,4 +73,8 @@ export default class Card {
     this._cardLikesQty.textContent = num;
     this._likeCard();
   }
+
+  static removeCardInDelPopup(cardId) {
+    document.getElementById(cardId).remove();
+  }
 }
