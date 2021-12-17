@@ -13,6 +13,8 @@ Github pages: https://leonidshorin.github.io/mesto/
 
 - Webpack, Babel
 
+- REST API
+
   
 
 Планы по доработке:

@@ -14,7 +14,9 @@
   <main>
 
     <section class="profile">
-      <img class="profile__avatar" src="<%=require('./images/jack-image.svg')%>" alt="Жак-Ив Кусто фото">
+      <div class="profile__avatar-block">
+        <img class="profile__avatar" src="<%=require('./images/avatar.svg')%>" alt="Жак-Ив Кусто фото">
+      </div>
       <div class="profile__info">
         <h1 class="profile__name">Жак-Ив Кусто</h1>
         <button class="profile__edit-button" type="button"></button>
@@ -35,12 +37,12 @@
     <div class="popup__window">
       <button type="button" class="popup__close-button popup__close-button_profile"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
-      <form name="popup-form-profile" class="popup__form popup__form_profile" novalidate>
+      <form name="popup-form-profile" class="popup__form popup__form_profile" id="popup-form-profile" novalidate>
         <input placeholder="Имя" name="name" type="text" class="popup__input popup__input_type_name" id="name-input" minlength="2" maxlength="40" required>
         <span class="popup__input-error name-input-error"></span>
         <input placeholder="О себе" name="description" type="text" class="popup__input popup__input_type_job" id="description-input" minlength="2" maxlength="200" required>
         <span class="popup__input-error description-input-error"></span>
-        <button type="submit" class="popup__save-button">Сохранить</button>
+        <button type="submit" class="popup__save-button popup__save-button_type_profile">Сохранить</button>
       </form>
     </div>
   </div>
@@ -49,12 +51,12 @@
     <div class="popup__window">
       <button type="button" class="popup__close-button popup__close-button_card"></button>
       <h2 class="popup__title">Новое место</h2>
-      <form name="popup-form-card" class="popup__form popup__form_card" novalidate>
+      <form name="popup-form-card" class="popup__form popup__form_card" id="popup-form-card" novalidate>
         <input type="text" name="name" class="popup__input popup__input_type_card-name" id="card-name-input" placeholder="Название" minlength="2" maxlength="30" required>
         <span class="popup__input-error card-name-input-error"></span>
         <input type="url" name="link" class="popup__input popup__input_type_link" id="image-link-input" placeholder="Ссылка на картинку" required>
         <span class="popup__input-error image-link-input-error"></span>
-        <button type="submit" class="popup__save-button">Создать</button>
+        <button type="submit" class="popup__save-button popup__save-button_type_card">Создать</button>
       </form>
     </div>
   </div>
@@ -69,12 +71,37 @@
     </div>
   </div>
 
+  <div class="popup popup_type_avatar">
+    <div class="popup__window">
+      <button type="button" class="popup__close-button popup__close-button_avatar"></button>
+      <h2 class="popup__title">Обновить аватар</h2>
+      <form name="popup-form-avatar" class="popup__form popup__form_avatar" id="popup-form-avatar" novalidate>
+        <input type="url" name="link" class="popup__input popup__input_type_avatar" id="avatar-link-input" placeholder="Ссылка на картинку" required>
+        <span class="popup__input-error avatar-link-input-error"></span>
+        <button type="submit" class="popup__save-button popup__save-button_type_avatar">Сохранить</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="popup popup_type_confirmation">
+    <div class="popup__window popup__window_conf">
+      <button type="button" class="popup__close-button popup__close-button_confirmation"></button>
+      <h2 class="popup__title">Вы уверены?</h2>
+      <form name="popup-form-confirmation" class="popup__form popup__form_confirmation" id="popup-form-confirmation" novalidate>
+        <button type="submit" class="popup__save-button popup__save-button_type_confirmation">Да</button>
+      </form>
+    </div>
+  </div>
+
   <template id="element__template">
     <div class="element">
-      <img class="element__photo" src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg" alt="Фото" id="image">
+      <img class="element__photo" src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg" alt="Фото">
       <div class="element__description">
-        <h2 class="element__title" id="title"></h2>
-        <button class="element__like-button" type="button" id="like-button"></button>
+        <h2 class="element__title"></h2>
+        <div class="element__like-block">
+          <button type="button" class="element__like-button"></button>
+          <span class="element__likes-num"></span>
+        </div>
       </div>
       <button type="button" class="element__delete-button"></button>
     </div>
