@@ -6,11 +6,17 @@ export default class PopupWithConfirmation extends Popup {
     this._handleFormSubmit = handleFormSubmit;
     this._form = this._popup.querySelector('.popup__form');
     this._submitButton = this._form.querySelector('.popup__save-button');
+    
   }
 
   open(cardId) {
     super.open();
     this._cardId = cardId;
+  }
+
+  removeCardConfirm(cardId) {
+    this._removingCard = document.getElementById(cardId)
+    this._removingCard.remove()
   }
 
   renderLoading(loading) {

@@ -65,7 +65,7 @@ const imgPopup = new PopupWithImage(imagePopup);
 const popupConfirmCardDeletion = new PopupWithConfirmation(confirmationPopup, (cardId) => {
   api.deleteCard(cardId)
   .then(() => {
-    Card.removeCardInDelPopup(cardId);
+    popupConfirmCardDeletion.removeCardConfirm(cardId);
     popupConfirmCardDeletion.close();
   })
   .catch(err => {
